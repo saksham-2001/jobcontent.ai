@@ -1,9 +1,9 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { generatePlaceholderText } from "@/utils/placeholder"
+import { Card, CardContent } from "../components/ui/card"
+
 
 export function PhotoBackgroundCoverLetter() {
   return (
-    <Card className="w-full max-w-3xl mx-auto shadow-lg overflow-hidden">
+    <Card className="w-full max-w-3xl mx-auto shadow-lg overflow-hidden rounded-none">
       <div className="relative h-64 bg-cover bg-center" style={{backgroundImage: "url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80')"}}>
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="absolute inset-0 flex items-center justify-center">
@@ -25,9 +25,7 @@ export function PhotoBackgroundCoverLetter() {
 
         <div className="space-y-4">
           <h2 className="text-2xl font-semibold text-gray-800">Dear Hiring Manager,</h2>
-          <p className="text-sm text-gray-700">{generatePlaceholderText(50)}</p>
-          <p className="text-sm text-gray-700">{generatePlaceholderText(75)}</p>
-          <p className="text-sm text-gray-700">{generatePlaceholderText(60)}</p>
+          <div className="whitespace-pre-wrap">{localStorage.getItem("coverletter")} </div>
         </div>
 
         <div className="mt-8">

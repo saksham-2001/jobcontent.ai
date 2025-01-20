@@ -47,7 +47,7 @@ export default function Homepage() {
 
     async function genratecoverletter() {
         const chatCompletion = await client.chat.completions.create({
-            messages: [{ role: 'user', content: `Act as a career coach and create a professional cover letter based on the job description: ${jd} and align it with the user profile: ${profile}. I want the response to include the cover letter content only.` }],
+            messages: [{ role: 'user', content: `Act as a career coach and create a professional cover letter based on the job description: ${jd} and align it with the user profile: ${profile}. I want the response to include the cover letter content only without including "Dear Hiring Manager" and any "Regards" in the end.` }],
             model: 'llama-3.3-70b-versatile',
         });
 
@@ -70,7 +70,7 @@ export default function Homepage() {
         else {
             console.log("Generating Cover letter");
             genratecoverletter();
-            navigate('/coverletter');
+            navigate('/coverlettertemplate');
         }
     }
     const handlealert = () => {

@@ -1,10 +1,10 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Separator } from "@/components/ui/separator"
-import { generatePlaceholderText } from "@/utils/placeholder"
+import { Card, CardContent } from "../components/ui/card"
+import { Separator } from "../components/ui/separator"
+//import { generatePlaceholderText } from "@/utils/placeholder"
 
 export function ClassicExecutiveCoverLetter() {
   return (
-    <Card className="w-full max-w-3xl mx-auto bg-white shadow-lg">
+    <Card className="w-full max-w-3xl mx-auto bg-white shadow-lg rounded-none">
       <CardContent className="p-8">
         <div className="text-center mb-6">
           <h1 className="text-4xl font-serif font-bold text-gray-800">John Doe</h1>
@@ -24,9 +24,10 @@ export function ClassicExecutiveCoverLetter() {
 
         <div className="space-y-4">
           <h2 className="text-xl font-serif font-semibold text-gray-800">Dear Hiring Manager,</h2>
-          <p className="text-sm text-gray-700">{generatePlaceholderText(50)}</p>
+          {/* <p className="text-sm text-gray-700">{generatePlaceholderText(50)}</p>
           <p className="text-sm text-gray-700">{generatePlaceholderText(75)}</p>
-          <p className="text-sm text-gray-700">{generatePlaceholderText(60)}</p>
+          <p className="text-sm text-gray-700">{generatePlaceholderText(60)}</p> */}
+          <div className="whitespace-pre-wrap"> {localStorage.getItem("coverletter")}</div>
         </div>
 
         <div className="mt-8">

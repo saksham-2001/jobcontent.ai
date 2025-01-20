@@ -1,9 +1,9 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { generatePlaceholderText } from "@/utils/placeholder"
+import { Card, CardContent } from "../components/ui/card"
+
 
 export function ModernInfographicCoverLetter() {
   return (
-    <Card className="w-full max-w-3xl mx-auto bg-gray-100 shadow-lg overflow-hidden">
+    <Card className="w-full max-w-3xl mx-auto bg-gray-100 shadow-lg overflow-hidden rounded-none">
       <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-8 text-white">
         <h1 className="text-4xl font-bold">John Doe</h1>
         <p className="text-xl mt-2">Web Developer</p>
@@ -20,9 +20,7 @@ export function ModernInfographicCoverLetter() {
 
         <div className="space-y-4">
           <h2 className="text-2xl font-semibold text-gray-800">Dear Hiring Manager,</h2>
-          <p className="text-sm text-gray-700">{generatePlaceholderText(50)}</p>
-          <p className="text-sm text-gray-700">{generatePlaceholderText(75)}</p>
-          <p className="text-sm text-gray-700">{generatePlaceholderText(60)}</p>
+          <div className="whitespace-pre-wrap">{localStorage.getItem("coverletter")} </div>
         </div>
 
         <div className="mt-8">

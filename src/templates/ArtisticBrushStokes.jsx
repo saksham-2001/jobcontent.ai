@@ -1,9 +1,9 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { generatePlaceholderText } from "@/utils/placeholder"
+import { Card, CardContent } from "../components/ui/card"
+
 
 export function ArtisticBrushStrokesCoverLetter() {
   return (
-    <Card className="w-full max-w-3xl mx-auto bg-white shadow-lg overflow-hidden">
+    <Card className="w-full max-w-3xl mx-auto bg-white shadow-lg overflow-hidden rounded-none">
       <div className="relative h-48 bg-yellow-100">
         <div className="absolute inset-0 flex items-center justify-center">
           <svg className="w-full h-full" viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
@@ -30,9 +30,10 @@ export function ArtisticBrushStrokesCoverLetter() {
 
         <div className="space-y-4">
           <h2 className="text-2xl font-semibold text-gray-800">Dear Hiring Manager,</h2>
-          <p className="text-sm text-gray-700">{generatePlaceholderText(50)}</p>
+          {/* <p className="text-sm text-gray-700">{generatePlaceholderText(50)}</p>
           <p className="text-sm text-gray-700">{generatePlaceholderText(75)}</p>
-          <p className="text-sm text-gray-700">{generatePlaceholderText(60)}</p>
+          <p className="text-sm text-gray-700">{generatePlaceholderText(60)}</p> */}
+          <div className="whiteSpace-pre-wrap text-sm text-gray-700">{localStorage.getItem("coverletter")}</div>
         </div>
 
         <div className="mt-8">

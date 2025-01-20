@@ -1,9 +1,9 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { generatePlaceholderText } from "@/utils/placeholder"
+import { Card, CardContent } from "../components/ui/card"
+//import { generatePlaceholderText } from "@/utils/placeholder"
 
 export function ColorfulBlocksCoverLetter() {
   return (
-    <Card className="w-full max-w-3xl mx-auto bg-white shadow-lg overflow-hidden">
+    <Card className="w-full max-w-3xl mx-auto bg-white shadow-lg overflow-hidden rounded-none">
       <div className="grid grid-cols-6 grid-rows-6 h-32">
         <div className="bg-red-500 col-span-2 row-span-3"></div>
         <div className="bg-blue-500 col-span-2 row-span-2"></div>
@@ -29,9 +29,10 @@ export function ColorfulBlocksCoverLetter() {
 
         <div className="space-y-4">
           <h2 className="text-2xl font-semibold text-gray-800">Dear Hiring Manager,</h2>
-          <p className="text-sm text-gray-700">{generatePlaceholderText(50)}</p>
+          {/* <p className="text-sm text-gray-700">{generatePlaceholderText(50)}</p>
           <p className="text-sm text-gray-700">{generatePlaceholderText(75)}</p>
-          <p className="text-sm text-gray-700">{generatePlaceholderText(60)}</p>
+          <p className="text-sm text-gray-700">{generatePlaceholderText(60)}</p> */}
+          <div className="whitespace-prewrap">{localStorage.getItem("coverletter")}</div>
         </div>
 
         <div className="mt-8">

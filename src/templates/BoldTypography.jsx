@@ -1,9 +1,9 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { generatePlaceholderText, companyInfo } from "@/utils/placeholder"
+import { Card, CardContent } from "../components/ui/card"
+//import { generatePlaceholderText, companyInfo } from "@/utils/placeholder"
 
 export function BoldTypographyCoverLetter() {
   return (
-    <Card className="w-full max-w-3xl mx-auto bg-white shadow-lg">
+    <Card className="w-full max-w-3xl mx-auto bg-white shadow-lg rounded-none">
       <CardContent className="p-8">
         <div className="mb-6">
           <h1 className="text-5xl font-extrabold text-gray-800 mb-2">JOHN DOE</h1>
@@ -20,15 +20,16 @@ export function BoldTypographyCoverLetter() {
         </div>
 
         <div className="mb-6">
-          <p className="text-sm text-gray-600">{companyInfo.name}</p>
-          <p className="text-sm text-gray-600">{companyInfo.address}</p>
+          <p className="text-sm text-gray-600">Comapany Name</p>
+          <p className="text-sm text-gray-600">Company Address</p>
         </div>
 
         <div className="space-y-4">
           <h2 className="text-2xl font-bold text-gray-800">Dear Hiring Manager,</h2>
-          <p className="text-sm text-gray-700">{generatePlaceholderText(50)}</p>
+          {/* <p className="text-sm text-gray-700">{generatePlaceholderText(50)}</p>
           <p className="text-sm text-gray-700">{generatePlaceholderText(75)}</p>
-          <p className="text-sm text-gray-700">{generatePlaceholderText(60)}</p>
+          <p className="text-sm text-gray-700">{generatePlaceholderText(60)}</p> */}
+          <div className="whitespace-pre-wrap">{localStorage.getItem("coverletter")}</div>
         </div>
 
         <div className="mt-8">
