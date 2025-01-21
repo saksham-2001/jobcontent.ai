@@ -37,33 +37,37 @@ export default function Homepage() {
     const [profile, setProfile] = useState("");
     const navigate = useNavigate();
     const [showdialog, setShowdialog] = useState(false);
-    
+
 
     const client = new Groq({
         apiKey: process.env.REACT_APP_API_KEY,
-         dangerouslyAllowBrowser: true
+        dangerouslyAllowBrowser: true
 
     });
 
     async function genratecoverletter() {
         const chatCompletion = await client.chat.completions.create({
-            messages: [{ role: 'user', content: `Act as a career coach and create a professional cover letter based on the job description: ${jd} and align it with the user profile: ${profile}. I want the response to include the cover letter content only without including "Dear Hiring Manager" and any "Regards" in the end.` }],
+            messages: [
+
+                { role: 'user', content: `Act as a career coach and create a professional cover letter based on the job description: ${jd} and align it with the user profile: ${profile}. I want the response to include the cover letter content only without including "Dear Hiring Manager" and any "Regards" in the end.` },
+                
+            ],
             model: 'llama-3.3-70b-versatile',
         });
 
         const coverletter = chatCompletion.choices[0].message.content;
-       console.log(coverletter);
-       const stringfiedcoverletter = JSON.stringify(coverletter);
-       // console.log(stringfiedcoverletter);
-       
+        console.log(coverletter);
+        const stringfiedcoverletter = JSON.stringify(coverletter);
+        // console.log(stringfiedcoverletter);
+
         localStorage.setItem('coverletter', coverletter);
         console.log(localStorage.getItem('coverletter'));
     }
     const handleclick = () => {
         if (jd == "" || profile == "") {
-          
+
             setShowdialog(true);
-            
+
             //alert("Jd and Profile cannot be empty");
 
         }
@@ -75,7 +79,7 @@ export default function Homepage() {
     }
     const handlealert = () => {
         setShowdialog(false);
-        
+
     }
     const handleprofile = (e) => {
         setProfile(e.target.value);
@@ -94,8 +98,8 @@ export default function Homepage() {
     }, []);
 
     return (
-            <div>
-            <div className={`min-h-screen ${showdialog? "opacity-10" : "opacity-100"} bg-background text-foreground flex flex-col items-center justify-center px-4`}>
+        <div>
+            <div className={`min-h-screen ${showdialog ? "opacity-10" : "opacity-100"} bg-background text-foreground flex flex-col items-center justify-center px-4`}>
 
 
 
@@ -149,15 +153,15 @@ export default function Homepage() {
                     Generate Cover Letter
                 </Button>
             </div>
-            
-      
-        {showdialog &&
-            <div className= " -mt-[120px] max-w-xl mx-auto " onClick={handlealert}>
-                <AlertHome className="bg-black text-white" ></AlertHome>
-            </div>
-        }
+
+
+            {showdialog &&
+                <div className=" -mt-[120px] max-w-xl mx-auto " onClick={handlealert}>
+                    <AlertHome className="bg-black text-white" ></AlertHome>
+                </div>
+            }
         </div>
-        
+
 
     );
 }

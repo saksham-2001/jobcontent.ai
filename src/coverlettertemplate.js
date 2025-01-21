@@ -124,7 +124,7 @@
 
 //'use client'
 
-import { useState, useEffect, useRef,} from 'react';
+import { useState, useEffect, useRef, } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import {
@@ -218,7 +218,8 @@ export default function CoverLetterTemplate() {
           const style = clonedDoc.createElement('style');
           style.textContent = `
             @media print {
-              body { -webkit-print-color-adjust: exact; }
+              body { 
+              -webkit-print-color-adjust: exact; }
               
             }
           `;
@@ -227,6 +228,8 @@ export default function CoverLetterTemplate() {
       });
 
       const imgData = canvas.toDataURL('image/png');
+
+
       const pdf = new jsPDF({
         orientation: 'portrait',
         unit: 'px',
@@ -234,6 +237,20 @@ export default function CoverLetterTemplate() {
       });
 
       pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+
+      // **Add Clickable Links**
+      const links = template.querySelectorAll("a");
+      links.forEach((link) => {
+        const rect = link.getBoundingClientRect();
+        const x = (rect.left - template.getBoundingClientRect().left) * 2; // Adjust for scaling
+        const y = (rect.top - template.getBoundingClientRect().top) * 2; // Adjust for scaling
+        const width = rect.width * 2;
+        const height = rect.height * 2;
+
+        pdf.link(x, y, width, height, { url: link.href });
+      });
+
+
       pdf.save(`${templates[selectedTemplate].name}Cover_letter.pdf`);
 
       toast({
@@ -265,96 +282,96 @@ export default function CoverLetterTemplate() {
 
 
 
-      
-        <div>
-          <div className=" flex justify-end p-3 ">
-            <motion.div
-              // className="absolute top-4 right-4 z-10"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+
+      <div>
+        <div className=" flex justify-end p-3 ">
+          <motion.div
+            // className="absolute top-4 right-4 z-10"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Button
+              onClick={handleEditPDF}
+              className=" shadow-lg mr-2 "
             >
-              <Button
-                onClick={handleEditPDF}
-                className=" shadow-lg mr-2 "
-              >
-                {/* <Download className="mr-2 h-4 w-4" /> 
+              {/* <Download className="mr-2 h-4 w-4" /> 
                */}Edit pdf
-              </Button>
-            </motion.div>
+            </Button>
+          </motion.div>
 
-            <motion.div
-              // className="absolute top-4 right-4 z-10"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+          <motion.div
+            // className="absolute top-4 right-4 z-10"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Button
+              onClick={handleDownloadPDF}
+              className="bg-cyan-500 hover:bg-cyan-600 text-white shadow-lg "
             >
-              <Button
-                onClick={handleDownloadPDF}
-                className="bg-cyan-500 hover:bg-cyan-600 text-white shadow-lg "
-              >
-                {/* <Download className="mr-2 h-4 w-4" /> 
+              {/* <Download className="mr-2 h-4 w-4" /> 
                */}Download PDF
-              </Button>
-            </motion.div>
-          </div>
-
-
-          <main className="flex-grow flex flex-col items-center justify-center p-3">
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="w-full max-w-5xl relative"
-            >
-              <Carousel
-                // ref={carouselRef}
-                className="w-full"
-
-              >
-                <CarouselContent>
-                  {templates.map((template, index) => (
-                    <CarouselItem
-                      key={index}
-
-
-                    >
-
-                      {/* <Card className="mx-auto bg-transparent shadow-xl hover:shadow-2xl transition-shadow duration-300"> */}
-                      <CardContent className=" items-center justify-center ">
-                        <div
-                          className="text-center bg-transparent w-[75%] ml-20"
-
-
-                        >
-                          <h2 className="text-2xl mb-2 font-semibold mb-4">{template.name}</h2>
-                          <div className=" w-full  text-left whitespace-pre-wrap text-sm overflow-hidden"
-                            ref={(el) => (templateRefs.current[index] = el)}
-                          >
-                            {template.component}
-                          </div>
-                        </div>
-                      </CardContent>
-                      {/* </Card> */}
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <div onClick={() => { setSelectedTemplate(selectedTemplate - 1); }}>
-                  <CarouselPrevious className=" fixed top-1/2 left-4 transform -translate-y-1/2 bg-blue-400 p-2 rounded-full text-white z-50"
-
-                  />
-                </div>
-                <div onClick={() => { setSelectedTemplate(selectedTemplate + 1); }}>
-                  <CarouselNext className="fixed top-1/2 right-4 transform -translate-y-1/2 bg-blue-400 p-2 rounded-full text-white z-50"
-
-                  />
-                </div>
-              </Carousel>
-
-
-            </motion.div>
-          </main>
+            </Button>
+          </motion.div>
         </div>
- 
+
+
+        <main className="flex  items-center justify-center p-3">
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="w-full max-w-5xl relative"
+          >
+            <Carousel
+            // ref={carouselRef}
+
+
+            >
+              <CarouselContent>
+                {templates.map((template, index) => (
+                  <CarouselItem
+                    key={index}
+
+
+                  >
+
+                    {/* <Card className="mx-auto bg-transparent shadow-xl hover:shadow-2xl transition-shadow duration-300"> */}
+                    <CardContent className=" flex items-center justify-center ">
+                      <div
+                        className="text-center bg-transparent w-[75%] ml-20"
+
+
+                      >
+                        <h2 className="text-2xl mb-2 font-semibold mb-4">{template.name}</h2>
+                        <div className="  text-left whitespace-pre-wrap text-sm overflow-hidden"
+                          ref={(el) => (templateRefs.current[index] = el)}
+                        >
+                          {template.component}
+                        </div>
+                      </div>
+                    </CardContent>
+                    {/* </Card> */}
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <div onClick={() => { setSelectedTemplate(selectedTemplate - 1); }}>
+                <CarouselPrevious className=" fixed top-1/2 left-4 transform -translate-y-1/2 bg-blue-400 p-2 rounded-full text-white z-50"
+
+                />
+              </div>
+              <div onClick={() => { setSelectedTemplate(selectedTemplate + 1); }}>
+                <CarouselNext className="fixed top-1/2 right-4 transform -translate-y-1/2 bg-blue-400 p-2 rounded-full text-white z-50"
+
+                />
+              </div>
+            </Carousel>
+
+
+          </motion.div>
+        </main>
+      </div>
+
 
       <footer className=" p-4 text-center text-gray-600 bg-gray-100">
         <p>&copy; 2025 Cover Letter Generator. All rights reserved.</p>
