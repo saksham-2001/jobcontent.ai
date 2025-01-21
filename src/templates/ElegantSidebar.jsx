@@ -16,16 +16,22 @@ export function ElegantSidebarCoverLetter() {
               {localStorage.getItem("jobrole") || "Web Developer"}
             </p>
           </div>
-          <div className="space-y-4 mt-6">
-            <div>
-              <h2 className="text-lg font-semibold text-gray-700">Contact</h2>
+          <div className="space-y-6 mt-4">
+            <div >
+              <h2 className="text-base font-semibold text-gray-700 mb-2">Contact</h2>
+              <div className="flex items-center ">
+              <a className="flex items-center " href={localStorage.getItem('linkedin')} target="_blank" rel="noopener noreferrer">
+                <span className="text-blue-600">{'\u{1F517}'}</span> {/* Unicode for "Bust in Silhouette" */}
+                <span className="text-xs text-gray-700 ">{localStorage.getItem("linkedin")}</span>
+              </a>
+            </div>
+            <div className="flex items-center ">
+              <a href={`mailto:${localStorage.getItem("email")}`} className="flex items-center space-x-2">
+                <span className="text-blue ">&#9993;</span> {/* Unicode for "Envelope" */}
+                <span className="text-xs text-gray-700 ">{localStorage.getItem("email")}</span>
+              </a>
+            </div>
               
-              <p className="text-sm text-gray-600">
-                {localStorage.getItem("email") || "john.doe@email.com"}
-              </p>
-              <p className="text-sm text-gray-600">
-                {localStorage.getItem("linkedin") || "Linkeidn"}
-              </p>
             </div>
           </div>
         </div>
@@ -48,6 +54,9 @@ export function ElegantSidebarCoverLetter() {
               </p>
               <p className="text-sm text-gray-600">
                 {localStorage.getItem("suburb") || "Company Address"}
+              </p>
+              <p className="text-base py-3 text-gray-600">
+                RE: {localStorage.getItem("jobrole") || "Web Developer"} Role
               </p>
             </div>
 

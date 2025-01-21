@@ -70,22 +70,37 @@ export function PhotoBackgroundCoverLetter() {
             <p className="text-xl text-gray-200">
               {localStorage.getItem("jobrole") || "Web Developer"}
             </p>
+            <div className="flex items-center justify-center">
+              <a className="flex items-center space-x-2" href={localStorage.getItem('linkedin')} target="_blank" rel="noopener noreferrer">
+                <span >{'\u{1F517}'}</span> {/* Unicode for "Bust in Silhouette" */}
+                <span className="text-sm text-white ">{localStorage.getItem("linkedin")}</span>
+              </a>
+            </div>
+            <div className="flex items-center justify-center">
+              <a href={`mailto:${localStorage.getItem("email")}`} className="flex items-center space-x-2">
+                <span >&#9993;</span> {/* Unicode for "Envelope" */}
+                <span className="text-sm text-white">{localStorage.getItem("email")}</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
       <CardContent className="p-8 bg-white bg-opacity-90">
-        {/* Contact Info Section */}
-        <div className="flex flex-col md:flex-row justify-between items-start mb-8">
+       {/* Org details */}
+       <div className="flex flex-col md:flex-row justify-between items-start mb-8">
           <div className="space-y-1">
-            <p className="text-sm text-gray-600">
-              {localStorage.getItem("street") || "123 Main St, City, State 12345"}
+          <p className="text-sm text-gray-600">
+              {localStorage.getItem("orgname") || "XYZ"}
             </p>
             <p className="text-sm text-gray-600">
-              {localStorage.getItem("email") || "john.doe@email.com"}
+              {localStorage.getItem("street") || "123 Main St,"}
             </p>
             <p className="text-sm text-gray-600">
-              {localStorage.getItem("phone") || "(123) 456-7890"}
+              {localStorage.getItem("suburb") || " City, State 12345"}
+            </p>
+            <p className="text-base py-3 text-gray-600">
+              RE: {localStorage.getItem("jobrole") || "Web Developer"} Role
             </p>
           </div>
           <p className="text-sm text-gray-600 mt-4 md:mt-0">

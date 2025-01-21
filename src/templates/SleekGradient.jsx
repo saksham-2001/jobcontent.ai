@@ -1,6 +1,5 @@
 
 import { Card, CardContent } from "../components/ui/card";
-import { FaLinkedin, FaEnvelope } from 'react-icons/fa';
 
 export function SleekGradientCoverLetter() {
   return (
@@ -13,20 +12,7 @@ export function SleekGradientCoverLetter() {
               {localStorage.getItem("name") || "John Doe"}
             </h1>
 
-            {/* <div className="flex items-center space-x-2">
-              <a className=" flex items-center space-x-2" href={localStorage.getItem('linkedin')} target="_blank" rel="noopener noreferrer" >
-                <FaLinkedin className=" text-blue-600  " />
-                
-                <span className="text-sm text-gray-700">{localStorage.getItem("linkedin")}</span>
-              </a>
-            </div>
-            <div className="flex items-center space-x-2">
-              <a href={`mailto:${localStorage.getItem("email")}`} className="flex items-center space-x-2">
-                <FaEnvelope className=" text-blue" />
-               
-                <span className="text-sm text-gray-700">{localStorage.getItem("email")}</span>
-              </a>
-            </div> */}
+        
             <div className="flex items-center space-x-2">
               <a className="flex items-center space-x-2" href={localStorage.getItem('linkedin')} target="_blank" rel="noopener noreferrer">
                 <span className="text-blue-600">{'\u{1F517}'}</span> {/* Unicode for "Bust in Silhouette" */}
@@ -47,6 +33,9 @@ export function SleekGradientCoverLetter() {
           {/* Organisation details */}
           <div className="flex flex-col md:flex-row justify-between items-start mb-8">
             <div className="space-y-1">
+            <p className="text-sm text-gray-600">
+                {localStorage.getItem("orgname") || "XYZ"}
+              </p>
               <p className="text-sm text-gray-600">
                 {localStorage.getItem("street") || "123 Main St,"}
               </p>

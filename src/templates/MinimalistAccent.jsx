@@ -15,39 +15,46 @@ export function MinimalistAccentCoverLetter() {
           <p className="text-lg text-gray-600">
             {localStorage.getItem("jobrole") || "Web Developer"}
           </p>
+          <div className="flex items-center space-x-2">
+              <a className="flex items-center space-x-2" href={localStorage.getItem('linkedin')} target="_blank" rel="noopener noreferrer">
+                <span className="text-blue-600">{'\u{1F517}'}</span> {/* Unicode for "Bust in Silhouette" */}
+                <span className="text-sm text-gray-700">{localStorage.getItem("linkedin")}</span>
+              </a>
+            </div>
+            <div className="flex items-center space-x-2">
+              <a href={`mailto:${localStorage.getItem("email")}`} className="flex items-center space-x-2">
+                <span className="text-blue">&#9993;</span> {/* Unicode for "Envelope" */}
+                <span className="text-sm text-gray-700">{localStorage.getItem("email")}</span>
+              </a>
+            </div>
         </div>
 
         {/* Contact and Date Section */}
-        <div className="mt-6 flex flex-col md:flex-row justify-between items-start">
-          <div className="space-y-1">
-            <p className="text-sm text-gray-600">
-              {localStorage.getItem("street") || "123 Main St, City, State 12345"}
-            </p>
-            <p className="text-sm text-gray-600">
-              {localStorage.getItem("email") || "john.doe@email.com"}
-            </p>
-            <p className="text-sm text-gray-600">
-              {localStorage.getItem("phone") || "(123) 456-7890"}
-            </p>
-          </div>
-          <p className="text-sm text-gray-600 mt-4 md:mt-0">
-            Date: {new Date().toLocaleDateString()}
-          </p>
-        </div>
+       
+        
+          
 
         {/* Separator */}
         <Separator className="my-6" />
 
         {/* Company Info Section */}
-        <div className="mb-6">
+        <div className="flex flex-col md:flex-row justify-between items-start mb-8">
+          <div className="space-y-1">
           <p className="text-sm text-gray-600">
-            {localStorage.getItem("orgname") || "Company Name"}
-          </p>
-          <p className="text-sm text-gray-600">
-            {localStorage.getItem("street") || "Company Address"}
-          </p>
-          <p className="text-sm text-gray-600">
-            {localStorage.getItem("suburb") || "Company Address"}
+              {localStorage.getItem("orgname") || "XYZ"}
+            </p>
+            <p className="text-sm text-gray-600">
+              {localStorage.getItem("street") || "123 Main St,"}
+            </p>
+            <p className="text-sm text-gray-600">
+              {localStorage.getItem("suburb") || " City, State 12345"}
+            </p>
+            <p className="text-base py-3 text-gray-600">
+              RE: {localStorage.getItem("jobrole") || "Web Developer"} Role
+            </p>
+          </div>
+          <p className="text-sm text-gray-600 mt-4 md:mt-0">
+            Date: {new Date().toLocaleDateString()}
           </p>
         </div>
 

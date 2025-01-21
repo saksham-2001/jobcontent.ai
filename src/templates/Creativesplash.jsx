@@ -9,23 +9,39 @@ export function CreativeSplashCoverLetter() {
         <h1 className="text-4xl font-bold">
           {localStorage.getItem("name") || "John Doe"}
         </h1>
+        
         <p className="text-xl mt-2">
           {localStorage.getItem("jobrole") || "Web Developer"}
         </p>
+        <div className="flex items-center space-x-2">
+              <a className="flex items-center space-x-2" href={localStorage.getItem('linkedin')} target="_blank" rel="noopener noreferrer">
+                <span >{'\u{1F517}'}</span> {/* Unicode for "Bust in Silhouette" */}
+                <span className="text-sm ">{localStorage.getItem("linkedin")}</span>
+              </a>
+            </div>
+            <div className="flex items-center space-x-2">
+              <a href={`mailto:${localStorage.getItem("email")}`} className="flex items-center space-x-2">
+                <span >&#9993;</span> {/* Unicode for "Envelope" */}
+                <span className="text-sm">{localStorage.getItem("email")}</span>
+              </a>
+            </div>
       </div>
 
       <CardContent className="p-8">
-        {/* Contact Information */}
+        {/* Org infor */}
         <div className="flex flex-col md:flex-row justify-between items-start mb-6">
           <div className="space-y-1">
-            <p className="text-sm text-gray-600">
-              {localStorage.getItem("street") || "123 Main St, City, State 12345"}
+          <p className="text-sm text-gray-600">
+              {localStorage.getItem("orgname") || "XYZ"}
             </p>
             <p className="text-sm text-gray-600">
-              {localStorage.getItem("email") || "john.doe@email.com"}
+              {localStorage.getItem("street") || "123 Main St"}
             </p>
             <p className="text-sm text-gray-600">
-              {localStorage.getItem("phone") || "(123) 456-7890"}
+              {localStorage.getItem("suburb") || "City, State 12345"}
+            </p>
+            <p className="py-2 text-base text-gray-600">
+             RE: {localStorage.getItem("jobrole") || "Web Developer"} Role
             </p>
           </div>
           <p className="text-sm text-gray-600 mt-4 md:mt-0">
@@ -33,18 +49,7 @@ export function CreativeSplashCoverLetter() {
           </p>
         </div>
 
-        {/* Company Information */}
-        <div className="mb-6">
-          <p className="text-sm text-gray-600">
-            {localStorage.getItem("orgname") || "Company Name"}
-          </p>
-          <p className="text-sm text-gray-600">
-            {localStorage.getItem("street") || "Company Address"}
-          </p>
-          <p className="text-sm text-gray-600">
-            {localStorage.getItem("suburb") || "Company Address"}
-          </p>
-        </div>
+       
 
         {/* Cover Letter Content */}
         <div className="space-y-4 mt-6">

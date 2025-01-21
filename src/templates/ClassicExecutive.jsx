@@ -9,29 +9,43 @@ export function ClassicExecutiveCoverLetter() {
       <CardContent className="p-8">
         {/* Header Section */}
         <div className="text-center mb-6">
-          <h1 className="text-4xl font-serif font-bold text-gray-800">
+          <h1 className="text-4xl mb-2 font-serif font-bold text-gray-800">
             {localStorage.getItem("name") || "John Doe"}
           </h1>
-          <p className="text-xl text-gray-600 mt-2">
-            {localStorage.getItem("jobrole") || "Web Developer"}
-          </p>
+          <div className="flex items-center justify-center">
+            <a className="flex items-center space-x-2" href={localStorage.getItem('linkedin')} target="_blank" rel="noopener noreferrer">
+              <span className="text-blue-600">{'\u{1F517}'}</span> {/* Unicode for "Bust in Silhouette" */}
+              <span className="text-sm text-gray-700">{localStorage.getItem("linkedin")}</span>
+            </a>
+          </div>
+          <div className="flex items-center justify-center">
+            <a href={`mailto:${localStorage.getItem("email")}`} className="flex items-center space-x-2">
+              <span className="text-blue">&#9993;</span> {/* Unicode for "Envelope" */}
+              <span className="text-sm text-gray-700">{localStorage.getItem("email")}</span>
+            </a>
+          </div>
+
         </div>
 
         <Separator className="my-6" />
 
-        {/* Contact Details */}
+        {/* Org Details */}
         <div className="flex flex-col md:flex-row justify-between items-start mb-8">
           <div className="space-y-1">
-            <p className="text-sm text-gray-600">
-              {localStorage.getItem("street") || "123 Main St, City, State 12345"}
+          <p className="text-sm text-gray-600">
+              {localStorage.getItem("orgname") || "XYZ "}
             </p>
             <p className="text-sm text-gray-600">
-              {localStorage.getItem("email") || "john.doe@email.com"}
+              {localStorage.getItem("street") || "123 Main St, "}
             </p>
             <p className="text-sm text-gray-600">
-              {localStorage.getItem("phone") || "(123) 456-7890"}
+              {localStorage.getItem("suburb") || "City, State 12345"}
             </p>
+            <p className="text-base text-gray-600 mt-2">
+            Re: {localStorage.getItem("jobrole") || "Web Developer"} Role
+          </p>
           </div>
+         
           <p className="text-sm text-gray-600 mt-4 md:mt-0">
             Date: {new Date().toLocaleDateString()}
           </p>
@@ -51,7 +65,7 @@ export function ClassicExecutiveCoverLetter() {
         {/* Professional Qualifications */}
         <div className="mt-8">
           <h3 className="text-lg font-serif font-semibold text-gray-800 mb-4">
-           Relevant Skills
+            Relevant Skills
           </h3>
           <ul className="list-disc list-inside text-sm text-gray-700 space-y-2">
             <div>

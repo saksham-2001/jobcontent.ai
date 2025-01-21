@@ -8,39 +8,49 @@ export function BoldTypographyCoverLetter() {
       <CardContent className="p-8">
         {/* Header Section */}
         <div className="mb-6">
-          <h1 className="text-5xl font-extrabold text-gray-800 mb-2">
+          <h1 className="mb-3 text-5xl font-extrabold text-gray-800 mb-2">
             {localStorage.getItem("name") || "JOHN DOE"}
           </h1>
-          <p className="text-xl font-semibold text-gray-600 uppercase tracking-wide">
-            {localStorage.getItem("jobrole") || "Web Developer"}
-          </p>
+          <div className="flex items-center space-x-2">
+              <a className="flex items-center space-x-2" href={localStorage.getItem('linkedin')} target="_blank" rel="noopener noreferrer">
+                <span className="text-blue-600">{'\u{1F517}'}</span> {/* Unicode for "Bust in Silhouette" */}
+                <span className="text-sm text-gray-700">{localStorage.getItem("linkedin")}</span>
+              </a>
+            </div>
+            <div className="flex items-center space-x-2">
+              <a href={`mailto:${localStorage.getItem("email")}`} className="flex items-center space-x-2">
+                <span className="text-blue">&#9993;</span> {/* Unicode for "Envelope" */}
+                <span className="text-sm text-gray-700">{localStorage.getItem("email")}</span>
+              </a>
+            </div>
+          
         </div>
 
-        {/* Contact Details */}
+        {/* organisation details*/}
         <div className="flex flex-col md:flex-row justify-between items-start mb-8">
           <div className="space-y-1">
+          <p className="text-sm text-gray-600">
+            {localStorage.getItem("orgname") || "Company Name"}
+          </p>
             <p className="text-sm text-gray-600">
-              {localStorage.getItem("street") || "123 Main St, City, State 12345"}
+              {localStorage.getItem("street") || "123 Main St,"}
             </p>
             <p className="text-sm text-gray-600">
-              {localStorage.getItem("email") || "john.doe@email.com"}
+              {localStorage.getItem("suburb") || "Sa,5000"}
             </p>
-            <p className="text-sm text-gray-600">
-              {localStorage.getItem("phone") || "(123) 456-7890"}
-            </p>
+            
           </div>
           <p className="text-sm text-gray-600 mt-4 md:mt-0">
             Date: {new Date().toLocaleDateString()}
           </p>
         </div>
 
-        {/* Company Details */}
+        
         <div className="mb-6">
-          <p className="text-sm text-gray-600">
-            {localStorage.getItem("orgname") || "Company Name"}
-          </p>
-          <p className="text-sm text-gray-600">
-            {localStorage.getItem("suburb") || "Company Address"}
+          
+         
+          <p className="text-base  text-gray-600 ">
+            Re: {localStorage.getItem("jobrole") || "Web Developer"} Role
           </p>
         </div>
 
