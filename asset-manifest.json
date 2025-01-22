@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/jobcontent.ai/static/css/main.b4c4fb2d.css",
-    "main.js": "/jobcontent.ai/static/js/main.fc4d77a1.js",
+    "main.js": "/jobcontent.ai/static/js/main.aadb87b6.js",
     "static/js/213.48ec6cdc.chunk.js": "/jobcontent.ai/static/js/213.48ec6cdc.chunk.js",
     "static/js/455.46e9596b.chunk.js": "/jobcontent.ai/static/js/455.46e9596b.chunk.js",
     "static/js/488.fc26a9c0.chunk.js": "/jobcontent.ai/static/js/488.fc26a9c0.chunk.js",
     "index.html": "/jobcontent.ai/index.html",
     "main.b4c4fb2d.css.map": "/jobcontent.ai/static/css/main.b4c4fb2d.css.map",
-    "main.fc4d77a1.js.map": "/jobcontent.ai/static/js/main.fc4d77a1.js.map",
+    "main.aadb87b6.js.map": "/jobcontent.ai/static/js/main.aadb87b6.js.map",
     "213.48ec6cdc.chunk.js.map": "/jobcontent.ai/static/js/213.48ec6cdc.chunk.js.map",
     "455.46e9596b.chunk.js.map": "/jobcontent.ai/static/js/455.46e9596b.chunk.js.map",
     "488.fc26a9c0.chunk.js.map": "/jobcontent.ai/static/js/488.fc26a9c0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b4c4fb2d.css",
-    "static/js/main.fc4d77a1.js"
+    "static/js/main.aadb87b6.js"
   ]
 }
