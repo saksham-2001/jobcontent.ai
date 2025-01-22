@@ -38,7 +38,7 @@ export default function Homepage() {
       messages: [
         {
           role: "user",
-          content: `Act as a career coach and create a professional cover letter based on the job description: ${jd} and align it with the user profile: ${profile}. I want the response to include the cover letter content only without including "Dear Hiring Manager" and any "Regards" in the end.`,
+          content: `Act as a career coach and create a professional cover letter based on the job description: ${jd} and align it with the user profile: ${profile}. I want the response to include the cover letter content only without including "Dear Hiring Manager" and any "Regards" in the end. Also make sure that the cover letter has no more than 5 paragrpahs. Explain that how the applicant has skills that match the key requirements. Use Star method whereever possible`,
         },
       ],
       model: "llama-3.3-70b-versatile",
@@ -49,12 +49,12 @@ export default function Homepage() {
     localStorage.setItem("coverletter", coverLetter)
   }
 
-  const handleClick = () => {
+  const handleClick = async() => {
     if (jd === "" || profile === "") {
       setShowdialog(true)
     } else {
       console.log("Generating Cover letter")
-      generateCoverLetter()
+      await generateCoverLetter()
       navigate("/coverlettereditor")
     }
   }
