@@ -1,13 +1,17 @@
 
 
 import { Card, CardContent } from "../components/ui/card";
-const skills = JSON.parse(localStorage.getItem("skills"))
-const Igskills=[{ skill: skills[0], level: 90 },
+const skills = JSON.parse(localStorage.getItem("skills")) || ["HTML", "JS", "Java", "PHP", "C#", "Python"];
+
+
+const Igskills=[
+  { skill: skills[0], level: 90 },
   { skill: skills[1], level: 88 },
   { skill: skills[2], level: 85 },
   { skill: skills[3], level: 80 },
   { skill: skills[4], level: 78 },
-  { skill: skills[5], level: 70 },]
+  { skill: skills[5], level: 70 }
+]
 export function ModernInfographicCoverLetter() {
   return (
     <Card className="w-full max-w-3xl mx-auto bg-gray-100 shadow-lg overflow-hidden rounded-none">
